@@ -14,7 +14,7 @@ class Button():
         self.func = func
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.rect.center = (self.x, self.y)
-        self.font = pygame.font.Font(pygame.font.match_font(FONT), TEXT_SIZE)
+        self.font = pygame.font.Font(FONT_PATH, TEXT_SIZE)
 
     def highlighted(self):
         mouse_pos = pygame.mouse.get_pos()
@@ -36,7 +36,7 @@ class Button():
         else:
             pygame.draw.rect(self.screen, self.color, self.rect)
 
-        self.draw_text(self.text, WHITE)
+        self.draw_text(self.text, TEXT_COLOR)
 
     def update(self):
         mouse_events = pygame.mouse.get_pressed()

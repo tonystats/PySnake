@@ -12,9 +12,10 @@ class Window():
         self.height = SCREEN_HEIGHT
         self.clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode((self.width, self.height))
-        self.font = pygame.font.Font(pygame.font.match_font(FONT), TEXT_SIZE)
+        self.font = pygame.font.Font(FONT_PATH, TEXT_SIZE)
         self.make_buttons()
         self.state = 'intro'
+        self.bg = pygame.image.load(BG_PATH).convert()
 
     def new(self):
         self.game = Game(self, CELL_SIZE*4, CELL_SIZE*4,
@@ -52,11 +53,12 @@ class Window():
 
     def make_buttons(self):
         self.play_button = Button(self.screen, self.width//2, self.height//2,
-            16*8, 16*5, GREEN, LIGHTGREEN, "PLAY", self.play)
+            CELL_SIZE*8, CELL_SIZE*4, GREEN, LIGHTGREEN, "PLAY", self.play)
 
     def draw(self):
-        self.screen.fill(WHITE)
+        self.screen.fill(BG_COLOR)
         if self.state == 'intro':
+            self.screen.blit(self.bg, self.bg.get_rect())
             self.play_button.draw()
         elif self.state == 'play':
             self.game.draw()

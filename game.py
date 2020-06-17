@@ -50,16 +50,16 @@ class Game():
 
     def draw(self):
         if self.playing:
-            pygame.draw.rect(self.screen, LIGHTYELLOW, self.rect)
+            pygame.draw.rect(self.screen, FIELD, self.rect)
             pygame.draw.rect(self.screen, BLACK, self.borders, BORDER_THICKNESS)
             self.draw_grid()
             self.snake.draw()
             self.apple.draw()
-            self.draw_text("{}".format(self.score), BLACK, SCREEN_WIDTH//2, 32)
+            self.draw_text("{}".format(self.score), TEXT_COLOR, SCREEN_WIDTH//2, 32)
         else:
-            self.screen.fill(LIGHTBLUE)
-            self.draw_text("YOU DIED LOL", BLACK, SCREEN_WIDTH//2, SCREEN_HEIGHT//4)
-            self.draw_text("Your score: {}".format(self.score), BLACK, SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
+            self.screen.fill(BG_COLOR)
+            self.draw_text("YOU DIED LOL", TEXT_COLOR, SCREEN_WIDTH//2, SCREEN_HEIGHT//4)
+            self.draw_text("Your score: {}".format(self.score), TEXT_COLOR, SCREEN_WIDTH//2, SCREEN_HEIGHT//2)
             self.quit_button.draw()
             self.play_again_button.draw()
 
@@ -68,8 +68,8 @@ class Game():
         pygame.time.wait(400)
         self.playing = False
         self.quit_button = Button(self.screen, SCREEN_WIDTH*3/4,
-                                  SCREEN_HEIGHT*3/4, 128, 128, RED, LIGHTRED,
+                                  SCREEN_HEIGHT*3/4, CELL_SIZE*6, CELL_SIZE*4, RED, LIGHTRED,
                                   "QUIT", self.window.quit)
         self.play_again_button = Button(self.screen, SCREEN_WIDTH//4,
-                                  SCREEN_HEIGHT*3/4, 320, 128, GREEN, LIGHTGREEN,
+                                  SCREEN_HEIGHT*3/4, CELL_SIZE*14, CELL_SIZE*4, GREEN, LIGHTGREEN,
                                   "PLAY AGAIN", self.window.play_again)

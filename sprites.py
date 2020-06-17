@@ -25,7 +25,7 @@ class Snake():
     def draw(self):
         for part in self.body:
             pygame.draw.rect(self.game.screen,
-                             GREEN,
+                             SNAKE_COLOR,
                              (part[0], part[1], CELL_SIZE-1, CELL_SIZE-1))
 
     def eat(self):
@@ -82,7 +82,7 @@ class Apple():
         self.rect.y = self.y
 
     def draw(self):
-        pygame.draw.rect(self.game.screen, RED, self.rect)
+        pygame.draw.rect(self.game.screen, APPLE_COLOR, self.rect)
 
     def update(self):
         pass
