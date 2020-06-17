@@ -1,5 +1,5 @@
 # Snake with Python
-**Author** : Eng. Tony De Corso
+**Author** : Tony De Corso (Italy, 22)
 # Introduction
 This project has the goal to build in time a fun version of the snake game using Python. In particular, 
 the games exploits the **pygame** module.  
