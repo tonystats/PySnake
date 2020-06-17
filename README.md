@@ -1,6 +1,13 @@
 # Snake with Python
 **Author** : Tony De Corso (Italy, 22)
-# Introduction
+## Credits
+
+A huge thanks to:
+Introduction Music by Tri-Tachyon - https://soundcloud.com/tri-tachyon/albums.
+Game Over Music by Cleyton Kauffman - https://soundcloud.com/cleytonkauffman
+Background music by "skrjablin".  
+
+## Introduction
 This project has the goal to build in time a fun version of the snake game using Python. In particular, 
 the games exploits the **pygame** module.  
 The game can be launched by executing the **main.py** script, which needs all of the other scripts in the repository, so make sure you run it in the same directory of all the other scripts, otherwise it will not work!  
