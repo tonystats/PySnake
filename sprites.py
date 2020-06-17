@@ -30,6 +30,7 @@ class Snake():
 
     def eat(self):
         if self.rect.colliderect(self.game.apple.rect):
+            self.game.window.pickup_snd.play()
             self.game.apple = Apple(self.game)
             for part in self.body:
                 if self.game.apple.rect.collidepoint(part[0], part[1]):

@@ -6,6 +6,7 @@ from game import Game
 class Window():
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
         pygame.display.set_caption(TITLE)
         self.running = True
         self.width = SCREEN_WIDTH
@@ -16,11 +17,19 @@ class Window():
         self.make_buttons()
         self.state = 'intro'
         self.bg = pygame.image.load(BG_PATH).convert()
+        self.game_over_snd = pygame.mixer.Sound(GAME_OVER_SND_PATH)
+        self.pickup_snd = pygame.mixer.Sound(PICKUP_SND_PATH)
+        pygame.mixer.Sound.set_volume(self.pickup_snd, 0.4)
+        self.waiting_snd = pygame.mixer.music.load(WAIT_SND_PATH)
+        pygame.mixer.music.play(loops = -1)
+        self.play_snd = pygame.mixer.Sound(PLAY_SND_PATH)
 
     def new(self):
         self.game = Game(self, CELL_SIZE*4, CELL_SIZE*4,
                          SCREEN_WIDTH - CELL_SIZE*8,
                          SCREEN_HEIGHT - CELL_SIZE*8)
+        self.bg_music = pygame.mixer.music.load(BG_MUSIC_PATH)
+        pygame.mixer.music.play(loops = -1)
 
     def run(self):
         while self.running:
@@ -65,6 +74,7 @@ class Window():
         pygame.display.flip()
 
     def play(self):
+        self.play_snd.play()
         self.state = 'play'
         self.new()
 
@@ -72,9 +82,12 @@ class Window():
         self.running = False
 
     def play_again(self):
+        pygame.mixer.stop()
+        self.play_snd.play()
         self.game = Game(self, CELL_SIZE*4, CELL_SIZE*4,
                          SCREEN_WIDTH - CELL_SIZE*8,
                          SCREEN_HEIGHT - CELL_SIZE*8)
+        pygame.mixer.music.play(loops = -1)
 
 if __name__ == "__main__":
     win = Window()

@@ -65,6 +65,8 @@ class Game():
 
 
     def die(self):
+        pygame.mixer.music.stop()
+        self.window.game_over_snd.play()
         pygame.time.wait(400)
         self.playing = False
         self.quit_button = Button(self.screen, SCREEN_WIDTH*3/4,

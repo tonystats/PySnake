@@ -6,7 +6,8 @@ SCREEN_HEIGHT = 16*45
 
 # GENERAL SETTINGS
 FPS = 30
-FONT_PATH = path.join(path.dirname(__file__), "From Cartoon Blocks.ttf")
+FONT_DIR = path.join(path.dirname(__file__), "fonts")
+FONT_PATH = path.join(FONT_DIR, "From Cartoon Blocks.ttf")
 TEXT_SIZE = 60
 CELL_SIZE = 24
 TITLE = "SNAKE"
@@ -32,5 +33,13 @@ GREY = (204, 204, 204)
 TEXT_COLOR = GREY
 
 # images
+IMG_DIR = path.join(path.dirname(__file__), "images")
+BG_PATH = path.join(IMG_DIR, "mosaic.jpg")
 
-BG_PATH = path.join(path.dirname(__file__), "mosaic.jpg")
+# sounds
+SND_DIR = path.join(path.dirname(__file__), "sounds")
+BG_MUSIC_PATH =  path.join(SND_DIR, "bg_track.ogg")
+GAME_OVER_SND_PATH = path.join(SND_DIR, "Retro_No hope.wav")
+PICKUP_SND_PATH =  path.join(SND_DIR, "pickup.wav")
+WAIT_SND_PATH = path.join(SND_DIR, "Jazzy Vibes #36 - Loop.mp3")
+PLAY_SND_PATH = path.join(SND_DIR, "play_snd.wav")
